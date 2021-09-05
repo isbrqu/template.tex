@@ -1,0 +1,287 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage{fontawesome}
+
+\tcbsetforeverylayer{
+    colframe=black,
+    colback=white,
+    colbacktitle=white,
+    coltitle=black
+}
+
+\tcbset{
+    fonttitle=\bfseries\upshape
+}
+
+\newtcolorbox{tagbox}[2][]{
+    enhanced, hbox,
+    before skip=2mm,after skip=1mm,
+    boxrule=0.4pt,left=5mm,right=4mm,top=1mm,bottom=1mm,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={
+        \path[fill=black]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[fill=black,draw=none]
+            (interior.south west) rectangle node[white]{\Large\bfseries #2} ([xshift=4mm]interior.north west);
+    },
+    drop fuzzy shadow,#1
+}
+
+\newtcolorbox{questionbox}[1][]{
+    enhanced,
+    before skip=2mm,after skip=1mm,
+    boxrule=0.4pt,left=5mm,right=4mm,top=1mm,bottom=1mm,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={
+        \path[fill=black]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[fill=black,draw=none]
+            (interior.south west) rectangle node[white]{\huge\bfseries ?} ([xshift=4mm]interior.north west);
+    },
+    drop fuzzy shadow, #1
+}
+
+\newtcolorbox{importantbox}[1][]{
+    enhanced,
+    before skip=2mm,after skip=1mm,
+    boxrule=0.4pt,left=5mm,right=4mm,top=1mm,bottom=1mm,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={
+        \path[fill=black]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[fill=black,draw=none]
+            (interior.south west) rectangle node[white]{\huge\bfseries !} ([xshift=4mm]interior.north west);
+    },
+    drop fuzzy shadow, #1
+}
+
+\newtcolorbox{remarkbox}[1][]{
+    enhanced,
+    before skip=2mm,after skip=3mm,
+    boxrule=0.4pt,left=6mm,right=4mm,top=1mm,bottom=1mm,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={
+        \path[fill=black]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[fill=black,draw=black, line width=.4pt]
+            (interior.south west) rectangle node[white]{\faEye} ([xshift=5mm]interior.north west);
+    },
+    drop fuzzy shadow,#1
+}
+
+\newtcolorbox{exercisebox}[1][]{
+    enhanced,
+    before skip=2mm,after skip=3mm,
+    boxrule=0.4pt,left=6mm,right=4mm,top=1mm,bottom=1mm,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={
+        \path[fill=black]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[fill=black,draw=black, line width=.4pt]
+            (interior.south west) rectangle node[white]{\faPencil} ([xshift=5mm]interior.north west);
+    },
+    drop fuzzy shadow,#1
+}
+
+\newtcolorbox{exercisepbox}[1][]{
+    enhanced,
+    before skip=2mm,after skip=3mm,
+    boxrule=0.4pt,left=6mm,right=4mm,top=1mm,bottom=1mm,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={
+        \path[fill=black]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm]
+            ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        \path[fill=black,draw=black, line width=.4pt]
+            (interior.south west) rectangle node[white]{\faEdit} ([xshift=5mm]interior.north west);
+    },
+    drop fuzzy shadow,#1
+}
+
+\newtcolorbox{blanckbox}[2][]{
+    enhanced, hbox,
+    before skip=2mm,after skip=3mm,
+    boxrule=0.4pt,left=8mm,right=5mm,top=1mm,bottom=1mm,
+    sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+    underlay={
+        \path[fill=black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        
+        \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+        
+        \path[fill=white,draw=black, line width=.4pt] (interior.south west) rectangle node[black]{\Large\bfseries #2} ([xshift=7mm]interior.north west);
+    },
+    drop fuzzy shadow,#1
+}
+
+\newtcolorbox{leftrightbox}[3][]{
+    enhanced, hbox,
+    before skip=2mm,after skip=3mm,
+    boxrule=0.4pt,left=7mm,right=5mm,top=1mm,bottom=1mm,
+    sharp corners,
+    underlay={
+        \path[fill=black,draw=none] (interior.south west) rectangle node[white]{\Large\bfseries #2} ([xshift=6mm]interior.north west);
+        
+        \path[fill=black,draw=none] (interior.south east) rectangle node[white]{\Large\bfseries #3}([xshift=-4mm]interior.north east);
+    },
+    drop fuzzy shadow,#1
+}
+
+\begin{document}
+
+    \begin{questionbox}
+        ¿Comó se puede vivir mejor?
+    \end{questionbox}
+    
+    \begin{importantbox}
+        Es esencial lo que dice aquí
+    \end{importantbox}
+    
+    \begin{remarkbox}
+        Este cartel le tenes que prestar atención
+    \end{remarkbox}
+    
+    \begin{exercisebox}
+        Comprobar si esto se puede hacer
+    \end{exercisebox}
+    
+    \begin{exercisepbox}
+        Comprobar si esto otro se puede hacer
+    \end{exercisepbox}
+    
+    \begin{blanckbox}{\faEye}
+        observación de cada punto
+    \end{blanckbox}
+    
+    \begin{leftrightbox}[]{\faEdit}{?}
+        habia una vez un pasto verde
+    \end{leftrightbox}
+    
+    \newpage
+    
+    \begin{tcolorbox}[blanker,left=3mm,right=3mm,
+        borderline vertical={2pt}{0pt}{black}]
+        This is a \textbf{tcolorbox}.\\
+        My second line.
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[blanker,top=3mm,bottom=3mm,
+        borderline horizontal={2pt}{0pt}{black}]
+        This is a \textbf{tcolorbox}.
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[
+        enhanced,arc=3mm,boxrule=1.5mm,boxsep=1.5mm,
+        colframe=black,
+        borderline={1mm}{1mm}{white},
+        borderline={1mm}{2mm}{black} ]
+        \lipsum[1]
+    \end{tcolorbox}
+    
+    \newtcolorbox{mybox}[2][]{title={#2},#1}
+    
+    \begin{mybox}{My title}
+        This is a \textbf{tcolorbox}.
+    \end{mybox}
+    
+    \begin{tcolorbox}[rightrule=3mm,title=myTitle]
+        This is a \textbf{tcolorbox}.
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[leftrule=3mm,title=myTitle]
+        This is a \textbf{tcolorbox}.
+    \end{tcolorbox}
+    
+    
+    \begin{mybox}[detach title,before upper={\tcbtitle\quad}, leftrule=3mm]{My title}
+        This is a \textbf{tcolorbox}.
+    \end{mybox}
+    
+    \begin{mybox}[detach title,after upper={\par\hfill\tcbtitle}]{My title}
+        This is a \textbf{tcolorbox}.
+    \end{mybox}
+    
+    Some text\dotfill
+    \tcbox[nobeforeafter,nobeforeafter,box align=base]{One line}
+    \tcbox[nobeforeafter,nobeforeafter,box align=base,size=fbox]{Another line}
+    
+    \begin{tcolorbox}[before lower*=$,after lower*=$]
+        This is a \textbf{tcolorbox}.
+        \tcblower
+        \sin^2(x)+\cos^2(x)=1.
+    \end{tcolorbox}
+    
+    \newpage
+    
+    \begin{tcolorbox}[before title={\textcolor{black}{\large Important:}~},title=My title]
+        This is a \textbf{tcolorbox}.
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[after title={\hfill\colorbox{black}{\textcolor{white}{approved}}},title=My title]
+        This is a \textbf{tcolorbox}.
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[after upper={\par\hfill\textit{Read more next week}},title=My title]
+        This is a \textbf{tcolorbox}.
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[before upper=\flqq,after upper=\frqq]
+        This is a \textbf{tcolorbox}.
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[title=Box \thetcolorboxnumber]
+        This box is \thetcolorboxnumber.
+        \tcbox[on line,size=fbox]{This box is \thetcolorboxnumber} and
+        \tcbox[on line,size=fbox]{this box is \thetcolorboxnumber}.
+        This box is \thetcolorboxnumber.
+    \end{tcolorbox}
+    
+    \newtcbtheorem[number within=section]{mytheo}{My Theorem}{}{th}
+    
+    \begin{mytheo*}{Unnumbered Theorem}
+        This theorem is not numbered.
+    \end{mytheo*}
+    
+    \begin{mytheo*}{}
+        This theorem has no number and no title.
+    \end{mytheo*}
+    
+    \newtcbtheorem[use counter from=mytheo]{theorem}{Teorema}{
+    fonttitle=\bfseries\upshape,fontupper=\itshape,
+    colframe=black,colback=white,
+    colbacktitle=black,coltitle=black}{theo}
+    
+    \begin{theorem*}[theorem style=plain]{pomping}{}
+        This is my theorem. \begin{equation*} a^2 + b^2 = c^2. \end{equation*}
+        simplooon $1=2-1=1+1-1$
+    \end{theorem*}
+    
+    \newenvironment{itemizebox}{\begin{itemize}}{\end{itemize}}
+    \tcolorboxenvironment{itemizebox}
+    {blanker, before skip=6pt,after skip=6pt, borderline west={3mm}{0pt}{red}}
+    Some text.
+    \begin{itemizebox}
+        \item Alpha
+        \item Beta
+        \item Gamma
+    \end{itemizebox}
+    More text.
+
+\end{document}

@@ -1,0 +1,315 @@
+\documentclass{article}
+
+% codificacion
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+
+% modifica sangria
+\parindent=0cm
+
+% expresiones matematicas
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{cancel}
+\usepackage{bm}        % texto en bold
+
+% manejar e incluir graficas
+\usepackage{graphicx}
+
+% conversiona formato eps a pdf
+%\usepackage{epstopdf}
+
+% formato extra en figuaras o tablas (H)
+\usepackage{float}
+
+% permite colocar varias figuras en el entorno figure
+\usepackage{subfigure}
+
+% formatos para las tablas
+\usepackage{array}
+\usepackage{longtable}
+
+% nuevo formato para las tablas
+\newcolumntype{E}{>{$}c<{$}}
+
+% restricción para las matrices
+\setcounter{MaxMatrixCols}{40}
+
+% manejar los margenes
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+\usepackage{lipsum}
+%\usepackage{showframe}
+
+% manejo de columnas
+\usepackage{multicol}
+
+% manejo de secciones
+\usepackage{titling}
+\usepackage{titlesec}
+
+\usepackage[sc]{mathpazo}
+
+% para hipervinculos
+\usepackage[colorlinks = true,
+            linkcolor = black,
+            urlcolor = blue,
+            citecolor = blue]{hyperref}
+
+% <<<<<<<<<<<<<< SECCIONES >>>>>>>>>>>>>>>
+	% cambio el formato de numeración de las secciones
+	\renewcommand{\thesection}{\Roman{section}}
+	\renewcommand{\thesubsection}{\roman{subsection}}
+	% centro las secciones
+	\titleformat{\section}
+	    [block]                     % ayuda a poder centrar
+	    {\bfseries\centering}       % estilo
+	    {\thesection.}              % contenido
+	    {1mm}{}                     % margen de numeración
+	\titleformat{\subsection}[block]{\bfseries\centering}{\thesubsection.}{1mm}{}
+
+% <<<<<<<<<<<<<< ENCABEZADO Y PIE >>>>>>>>>>>>>>>
+    % uso de encabezado y pie
+    \pagestyle{fancy}
+    % limpio formatos anteriores
+	\fancyfoot{}\fancyhead{}
+	% nuevo formato
+	\fancyhead[L]{
+	    \textbf{PROVINCIA DE NEUQUÉN\\
+		CONSEJO PROVINCIAL DE EDUCACIÓN\\
+		E.P.E.T. N$^\circ$ 20 NEUQUÉN}
+	}
+	%\fancyhead[C]{Titulo}
+	\fancyhead[R]{\textbf{Lanin 2020\\Tel. 4478052}}
+	%\fancyhead[R]{imagen}
+	\renewcommand{\headrulewidth}{0.9pt}
+	
+	\fancyfoot[R]{\thepage}
+	\fancyfoot[L]{Bruno Quiroga, Isaac}
+	\renewcommand{\footrulewidth}{0.5pt}
+
+% <<<<<<<<<<<<<< GEOMETRY >>>>>>>>>>>>>>>
+	\geometry{
+	    left=3cm,
+	    width=19cm,
+	    top=1cm,
+	    bottom=2cm,
+	    height=22cm,
+	    headsep=6mm,
+	    head=1.5cm,
+	    foot=1cm,
+	    marginparsep=5mm,
+	    marginpar=3cm,
+	    includeall,
+	}
+
+% <<<<<<<<<<<<<< SETEO DE MAKETITLE >>>>>>>>>>>>>>>
+	% lleva más arribla el titulo
+	\setlength{\droptitle}{-5\baselineskip}
+	\title{{\Huge\textbf{Titulo del articulo}}}
+	\author{
+	    \textsc{Isaac Bruno Quiroga}
+		\thanks{Información relacionada con el autor}\\[0.2cm]
+		\normalsize Universidadd de Guadalajara \\
+		\normalsize
+		\href{mailto:isbrqu@gmail.com}{isbrqu@gmail.com}
+	}
+
+\begin{document}
+
+    \begin{titlepage}
+        \begin{center}
+	        % \vspace*{2\baselineskip}
+	        \hrule height 3pt
+	        \vspace*{0.5\baselineskip}
+	        {\Huge \textbf{E.P.E.T. N$^\circ$ 20}}
+	        \\[0.1cm]
+	        {\large \textbf{Ciclo superior: 5$^{to}$ 2$^{da}$}}
+	        \vspace*{0.5\baselineskip}
+	        \hrule
+	        \vspace*{7\baselineskip}
+	        \includegraphics[scale=1]{example-image-a}
+	        \vspace*{2\baselineskip}
+	        \\
+	        {\huge\textbf{Técnicas Avanzadas en Programación}}
+	        \vfill
+	        {\Large Bruno Quiroga Isaac}\\
+	        \today
+        \end{center}
+    \end{titlepage}
+    
+    % <<<<<<<<<<<<<< INDEX >>>>>>>>>>>>>>>
+	    % renombra el titulo del indice
+	    \renewcommand{\contentsname}{Contenido}
+	    \tableofcontents
+	    % quitar el formato de la pagina del pie y encabezado
+	    \thispagestyle{empty}
+
+        \newpage
+    
+    % <<<<<<<<<<<<<< CONTENIDO >>>>>>>>>>>>>>>
+    % para que empiece de la uno la primera pagina y no como la segunda
+    \setcounter{page}{1}
+    
+    \maketitle
+    
+    \begin{abstract}
+        \lipsum[7]
+    \end{abstract}
+
+    \begin{multicols}{2}
+	    \section{Introducción}
+	    
+	    \lipsum[1]. Como la figura \eqref{figuara1} ejemplifica.
+	    
+	    Este es otro texto que pretende ejemplificar algo escrito a medida que lo voy haciente \footnote{Hablo de un ejemplo bien chetooo o una explicación agregada}
+	    
+	    \begin{figure*}[ht]%[hb]
+	        \centering
+	        \includegraphics[scale=0.4]{example-image-c}
+	        \caption{Primera figura}
+	    \end{figure*}
+	    
+	    \lipsum[3]
+	    
+	    \subsection{Bases}
+	    
+	    \lipsum[3]. Como en la tabla \eqref{mathtable} ejemplifica.
+	    
+	    
+	    \lipsum[4]
+	    
+	    \subsection{Ejemplos}
+	    
+	    \lipsum[6]\cite{nombre1}
+	    
+	    \begin{table}[H]
+	        \centering
+	        \begin{tabular}{|c|c|c|}
+	            \hline
+	            elemento uno  & elemento dos & elemento tres \\
+	            \hline
+	            elemento uno  & elemento dos & elemento tres \\
+	            \hline
+	            elemento uno  & elemento dos & elemento tres \\
+	            \hline
+	        \end{tabular}
+	        \caption{Usando el entorno normal}
+	        \label{tabla1}
+	    \end{table}
+	    
+	    \subsection{Productos notables}
+	    
+	    \lipsum[1-2]
+	    
+	    \begin{figure}[H]
+	        \centering
+	        \includegraphics[scale=0.5]{example-image-b}
+	        \caption{Gráfica importante}
+	        \label{figuara1}
+	    \end{figure}
+	    
+	    \lipsum[1-2] \cite{nombre2}
+	    
+	    \section{Cálculo diferencial}
+	    
+	    \lipsum[1] \cite{nombre1}	    
+	    
+	    \begin{table}[H]
+	        \centering
+	        \begin{tabular}{|E|E|E|}
+	            \hline
+	            x & (x+1)^2 & (x+1)^3 \\
+	            \hline
+	            x & (x+1)^2 & (x+1)^3 \\
+	            \hline
+	            x & (x+1)^2 & (x+1)^3 \\
+	            \hline
+	        \end{tabular}
+	        \caption{Usando el entorno matemático definido}
+	        \label{mathtable}
+	    \end{table}
+	    
+	    \subsection{Más ejemplos}
+	    
+	    \lipsum[3]
+	    
+	    \subsection{Otros ejemplos más complicados}
+	    
+	    \lipsum[2]
+	    
+        \begin{figure*}[ht]
+	        \centering
+	        \subfigure[uno]{\includegraphics[scale=0.3]{example-image-a}}
+	        \hspace{0.3cm}
+	        \subfigure[dos]{\includegraphics[scale=0.3]{example-image-b}}
+	        \caption{Graficas multiples}
+	    \end{figure*}
+	    
+	    \lipsum[1]
+	    
+	    \lipsum[3]
+
+	    \lipsum[1]
+	    
+	    \lipsum[3]
+	    
+	    \begin{table*}[ht]
+	        \centering
+	        \begin{tabular}{|c|c|c|}
+	            \hline
+	            elemento uno  & elemento dos & elemento tres \\
+	            \hline
+	            elemento uno  & elemento dos & elemento tres \\
+	            \hline
+	            elemento uno  & elemento dos & elemento tres \\
+	            \hline
+	        \end{tabular}
+	        \caption{Usando el entorno normal}
+	        \label{tabla2}
+	    \end{table*}
+	    
+	    \lipsum[1]
+	    
+	    \lipsum[3]
+	    
+	    \section{Cosas interesantes}
+	    
+	    \lipsum[7]
+	    
+	    \lipsum[2]
+
+	    \lipsum[2]
+	    
+	    \lipsum[2]
+	    
+	    \lipsum[2]
+	    
+	    \section{Más y más y más}
+	    
+	    \lipsum[7]
+	    
+	    \lipsum[7]
+	    
+	    \lipsum[7]
+	    
+	    \lipsum[7]
+	    
+	    \lipsum[2]
+	
+    \end{multicols}
+    
+    % <<<<<<<<<<<<<< BIBLIOGRAFIA >>>>>>>>>>>>>>>
+	    \newpage
+	    \renewcommand{\refname}{Bibliografía} % cambia el nombre de referencia por bibliografia
+	    \begin{thebibliography}{99}
+	        \bibitem{nombre1} Articulo o Libro 1, Autor 1, año de referencia 2
+	        \bibitem{nombre2} Articulo o Libro 2, Autor 2, año de referencia 2
+	        \bibitem{nombre3} Articulo o Libro 3, Autor 3, año de referencia 3
+	    \end{thebibliography}
+    
+\end{document}
