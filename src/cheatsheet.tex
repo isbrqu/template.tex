@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[most]{tcolorbox}
+\usepackage{paracol}
+\usepackage[landscape]{geometry}
+\geometry{
+    left=0.5cm,
+    right=0.5cm,
+    top=.5cm,
+    bottom=.5cm,
+    headsep=18pt,
+    headheight=1cm,
+    footskip=.5cm,
+    marginparwidth=0cm,
+}
+
+\title{cheatsheet template}
+\author{Isaac Bruno Quiroga}
+\date{August 2021}
+
+\begin{document}
+
+\begin{tcolorbox}[size=small,tile,
+colback=yellow!20,colbacktitle=yellow!70!black,
+title=Commands During Replay,center,center title,
+before upper*=\begin{tabular}{cc},
+after upper*=\end{tabular},
+]
+ & two \\
+three & four\\
+\end{tcolorbox}
+
+\end{document}
